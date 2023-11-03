@@ -1,0 +1,28 @@
+{
+  "name": "strapi-pnpm-docker-ts",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=18.0.0 <=20.x.x",
+    "npm": ">=6.0.0"
+  },
+  "dependencies": {
+    "@strapi/plugin-i18n": "4.15.0",
+    "@strapi/plugin-users-permissions": "4.15.0",
+    "@strapi/strapi": "4.15.0",
+    "better-sqlite3": "9.0.0"
+  },
+  "devDependencies": {
+    "@codemirror/autocomplete": "^6.10.2",
+    "@codemirror/lint": "^6.4.2",
+    "@codemirror/search": "^6.5.4",
+    "@codemirror/theme-one-dark": "^6.1.2",
+    "cross-env": "^7.0.3"
+  },
+  "scripts": {
+    "strapi": "strapi",
+    "develop": "strapi develop",
+    "build": "cross-env NODE_ENV=production  strapi build",
+    "start": "cross-env NODE_ENV=production  strapi start"
+  }
+}
