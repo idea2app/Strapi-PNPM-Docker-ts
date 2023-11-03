@@ -7,6 +7,7 @@
     "npm": ">=6.0.0"
   },
   "dependencies": {
+    "@strapi/plugin-documentation": "^4.15.0",
     "@strapi/plugin-i18n": "4.15.0",
     "@strapi/plugin-users-permissions": "4.15.0",
     "@strapi/strapi": "4.15.0",
@@ -21,8 +22,10 @@
   },
   "scripts": {
     "strapi": "strapi",
-    "develop": "strapi develop",
+    "develop": "strapi build  &&  strapi develop",
     "build": "cross-env NODE_ENV=production  strapi build",
-    "start": "cross-env NODE_ENV=production  strapi start"
+    "start": "cross-env NODE_ENV=production  strapi start",
+    "pack-image": "docker build -t strapi-server:latest .",
+    "container": "docker rm -f strapi-server  &&  docker run --name strapi-server -p 1337:1337 -d strapi-server:latest"
   }
 }

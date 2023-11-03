@@ -2,18 +2,22 @@
 
 Strapi comes with a full featured [Command Line Interface][1] (CLI) which lets you scaffold and manage your project in seconds.
 
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)][2]
+
 ## 🎮 Stack
 
--   Programming Language: [TypeScript][2] v5+
--   Package Manager: [PNPM][3] v7+
--   Headless CMS: [Strapi][4] v4+
--   Deployment Engine: [Docker][5]
+- Programming Language: [TypeScript][3] v5+
+- Package Manager: [PNPM][4] v7+
+- Headless CMS: [Strapi][5] v4+
+- API specification: [Swagger][6]
+- Deployment Engine: [Docker][7]
+- CI/CD platform: [GitHub actions][8]
 
 ## 🚀 Scripts
 
 ### `develop`
 
-Start your Strapi application with autoReload enabled. [Learn more][6]
+Start your Strapi application with autoReload enabled. [Learn more][9]
 
 ```shell
 npm i pnpm -g
@@ -23,7 +27,7 @@ pnpm develop
 
 ### `start`
 
-Start your Strapi application with autoReload disabled. [Learn more][7]
+Start your Strapi application with autoReload disabled. [Learn more][10]
 
 ```shell
 npm start
@@ -31,53 +35,72 @@ npm start
 
 ### `build`
 
-Build your admin panel. [Learn more][8]
+Build your admin panel. [Learn more][11]
 
 ```shell
 pnpm build
 ```
 
+### `pack-image`
+
+Build your Docker image locally.
+
+```shell
+pnpm pack-image
+```
+
+### `container`
+
+Run your Docker image locally.
+
+```shell
+pnpm container
+```
+
 ## ⚙️ Deployment
 
-Strapi gives you many possible deployment options for your project including [Strapi Cloud][9]. Browse the [deployment section of the documentation][10] to find the best solution for your use case.
+Strapi gives you many possible deployment options for your project including [Strapi Cloud][12]. Browse the [deployment section of the documentation][13] to find the best solution for your use case.
 
 ## 📚 Learn more
 
--   [Resource center][11] - Strapi resource center.
--   [Strapi documentation][12] - Official Strapi documentation.
--   [Strapi tutorials][13] - List of tutorials made by the core team and the community.
--   [Strapi blog][14] - Official Strapi blog containing articles made by the Strapi team and the community.
--   [Changelog][15] - Find out about the Strapi product updates, new features and general improvements.
+- [Resource center][14] - Strapi resource center.
+- [Strapi documentation][15] - Official Strapi documentation.
+- [Strapi tutorials][16] - List of tutorials made by the core team and the community.
+- [Strapi blog][17] - Official Strapi blog containing articles made by the Strapi team and the community.
+- [Changelog][18] - Find out about the Strapi product updates, new features and general improvements.
 
-Feel free to check out the [Strapi GitHub repository][16]. Your feedback and contributions are welcome!
+Feel free to check out the [Strapi GitHub repository][19]. Your feedback and contributions are welcome!
 
 ## ✨ Community
 
--   [Discord][17] - Come chat with the Strapi community including the core team.
--   [Forum][18] - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
--   [Awesome Strapi][19] - A curated list of awesome things related to Strapi.
+- [Discord][20] - Come chat with the Strapi community including the core team.
+- [Forum][21] - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
+- [Awesome Strapi][22] - A curated list of awesome things related to Strapi.
 
 ---
 
-🤫 Psst! [Strapi is hiring][20].
+🤫 Psst! [Strapi is hiring][23].
 
 [1]: https://docs.strapi.io/dev-docs/cli
-[2]: https://www.typescriptlang.org/
-[3]: https://pnpm.io/
-[4]: https://strapi.io/
-[5]: https://www.docker.com/
-[6]: https://docs.strapi.io/dev-docs/cli#strapi-develop
-[7]: https://docs.strapi.io/dev-docs/cli#strapi-start
-[8]: https://docs.strapi.io/dev-docs/cli#strapi-build
-[9]: https://cloud.strapi.io/
-[10]: https://docs.strapi.io/dev-docs/deployment
-[11]: https://strapi.io/resource-center
-[12]: https://docs.strapi.io/
-[13]: https://strapi.io/tutorials
-[14]: https://strapi.io/blog
-[15]: https://strapi.io/changelog
-[16]: https://github.com/strapi/strapi
-[17]: https://discord.strapi.io/
-[18]: https://forum.strapi.io/
-[19]: https://github.com/strapi/awesome-strapi
-[20]: https://strapi.io/careers
+[2]: https://gitpod.io/?autostart=true#https://github.com/idea2app/Strapi-PNPM-Docker-ts
+[3]: https://www.typescriptlang.org/
+[4]: https://pnpm.io/
+[5]: https://strapi.io/
+[6]: https://swagger.io/
+[7]: https://www.docker.com/
+[8]: https://github.com/features/actions
+[9]: https://docs.strapi.io/dev-docs/cli#strapi-develop
+[10]: https://docs.strapi.io/dev-docs/cli#strapi-start
+[11]: https://docs.strapi.io/dev-docs/cli#strapi-build
+[12]: https://cloud.strapi.io/
+[13]: https://docs.strapi.io/dev-docs/deployment
+[14]: https://strapi.io/resource-center
+[15]: https://docs.strapi.io/
+[16]: https://strapi.io/tutorials
+[17]: https://strapi.io/blog
+[18]: https://strapi.io/changelog
+[19]: https://github.com/strapi/strapi
+[20]: https://discord.strapi.io/
+[21]: https://forum.strapi.io/
+[22]: https://github.com/strapi/awesome-strapi
+[23]: https://strapi.io/careers
