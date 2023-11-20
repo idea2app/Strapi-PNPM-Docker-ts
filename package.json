@@ -7,14 +7,18 @@
     "npm": ">=6.0.0"
   },
   "dependencies": {
-    "@strapi/plugin-documentation": "^4.15.0",
-    "@strapi/plugin-i18n": "4.15.0",
-    "@strapi/plugin-users-permissions": "4.15.0",
-    "@strapi/strapi": "4.15.0",
-    "better-sqlite3": "9.0.0"
+    "@strapi/plugin-documentation": "4.15.4",
+    "@strapi/plugin-i18n": "4.15.4",
+    "@strapi/plugin-users-permissions": "4.15.4",
+    "@strapi/strapi": "4.15.4",
+    "better-sqlite3": "9.1.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^5.3.4",
+    "styled-components": "^5.3.11"
   },
   "devDependencies": {
-    "@codemirror/autocomplete": "^6.10.2",
+    "@codemirror/autocomplete": "^6.11.0",
     "@codemirror/lint": "^6.4.2",
     "@codemirror/search": "^6.5.4",
     "@codemirror/theme-one-dark": "^6.1.2",
@@ -26,6 +30,6 @@
     "build": "cross-env NODE_ENV=production  strapi build",
     "start": "cross-env NODE_ENV=production  strapi start",
     "pack-image": "docker build -t strapi-server:latest .",
-    "container": "docker rm -f strapi-server  &&  docker run --name strapi-server -p 1337:1337 -d strapi-server:latest"
+    "container": "(docker rm -f strapi-server || true)  &&  docker run --name strapi-server -p 1337:1337 -d strapi-server:latest"
   }
 }

@@ -1,23 +1,23 @@
-FROM node:18-slim
+# Reference: https://pnpm.io/docker#example-1-build-a-bundle-in-a-docker-container
 
-USER root
-
+FROM node:18-slim AS base
 RUN apt-get update && \
     apt-get install curl -y --no-install-recommends
-RUN npm rm yarn -g
-RUN npm i pnpm -g
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
+COPY . /app
+WORKDIR /app
 
-RUN mkdir /home/node/app
-WORKDIR /home/node/app
+FROM base AS prod-deps
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm i --prod --frozen-lockfile
 
-COPY package.json pnpm-lock.yaml .npmrc /home/node/app/
-RUN pnpm i --frozen-lockfile
-
-COPY . /home/node/app
+FROM base AS build
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm i --frozen-lockfile
 RUN pnpm build
 
-RUN pnpm prune --prod || true \
-    pnpm store prune
-
+FROM base
+COPY --from=prod-deps /app/node_modules /app/node_modules
+COPY --from=build /app/dist /app/dist
 EXPOSE 1337
 CMD ["npm", "start"]
