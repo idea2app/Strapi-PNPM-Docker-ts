@@ -7,6 +7,8 @@
     "npm": ">=6.0.0"
   },
   "dependencies": {
+    "@ckeditor/strapi-plugin-ckeditor": "^0.0.10",
+    "@strapi/plugin-color-picker": "^4.15.4",
     "@strapi/plugin-documentation": "4.15.4",
     "@strapi/plugin-i18n": "4.15.4",
     "@strapi/plugin-users-permissions": "4.15.4",
@@ -15,6 +17,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^5.3.4",
+    "strapi-content-type-explorer": "^0.1.1",
+    "strapi-plugin-multi-select": "^1.2.2",
+    "strapi-plugin-transformer": "^3.1.2",
     "styled-components": "^5.3.11"
   },
   "devDependencies": {
@@ -26,8 +31,9 @@
   },
   "scripts": {
     "strapi": "strapi",
-    "develop": "strapi build  &&  strapi develop",
-    "build": "cross-env NODE_ENV=production  strapi build",
+    "clean": "rm -rf .cache/ .strapi/ dist/",
+    "develop": "npm run clean  &&  strapi build  &&  strapi develop",
+    "build": "npm run clean  &&  cross-env NODE_ENV=production  strapi build",
     "start": "cross-env NODE_ENV=production  strapi start",
     "pack-image": "docker build -t strapi-server:latest .",
     "container": "(docker rm -f strapi-server || true)  &&  docker run --name strapi-server -p 1337:1337 -d strapi-server:latest"
