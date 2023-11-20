@@ -13,6 +13,20 @@ Strapi comes with a full featured [Command Line Interface][1] (CLI) which lets y
 - Deployment Engine: [Docker][7]
 - CI/CD platform: [GitHub actions][8]
 
+## 🔌 Pre-installed plugins
+
+### Back-end
+
+1. [Content Type explorer](https://github.com/shahriarkh/strapi-content-type-explorer)
+2. [Data transformer](https://github.com/ComfortablyCoding/strapi-plugin-transformer)
+3. [Swagger document](https://github.com/strapi/strapi/tree/develop/packages/plugins/documentation)
+
+### Front-end
+
+1. [Color picker](https://github.com/strapi/strapi/tree/develop/packages/plugins/color-picker)
+2. [Multiple selector](https://github.com/Zaydme/strapi-plugin-multi-select)
+3. [CKEditor 5](https://github.com/ckeditor/strapi-plugin-ckeditor)
+
 ## 🚀 Scripts
 
 ### `develop`
