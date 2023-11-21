@@ -6,4 +6,5 @@ export default () => ({
       removeAttributesKey: true,
     },
   },
+  'react-icons': true,
 });
