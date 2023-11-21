@@ -1,9 +1,22 @@
 version: '3'
 
 services:
+  postgres-server:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=${ADMIN_JWT_SECRET}
+    volumes:
+      - ./data:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+    restart: always
+
   strapi-server:
+    depends_on:
+      - postgres-server
     image: idea2app/strapi-server
     environment:
+      - DATABASE_URL=postgres://postgres:${ADMIN_JWT_SECRET}@postgres-server:5432/postgres
       - NODE_ENV=production
       - PORT=1337
     ports:
