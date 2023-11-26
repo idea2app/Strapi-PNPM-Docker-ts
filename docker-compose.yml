@@ -7,8 +7,6 @@ services:
       - POSTGRES_PASSWORD=${ADMIN_JWT_SECRET}
     volumes:
       - ./data:/var/lib/postgresql/data/
-    ports:
-      - 5432:5432
     restart: always
 
   strapi-server:
@@ -16,9 +14,9 @@ services:
       - postgres-server
     image: idea2app/strapi-server
     environment:
+      - DATABASE_CLIENT=postgres
       - DATABASE_URL=postgres://postgres:${ADMIN_JWT_SECRET}@postgres-server:5432/postgres
       - NODE_ENV=production
-      - PORT=1337
     ports:
       - 1337:1337
     healthcheck:
@@ -29,10 +27,6 @@ services:
     labels:
       - autoheal=true
     restart: always
-    logging:
-      driver: json-file
-      options:
-        max-size: 10m
 
   autoheal:
     image: willfarrell/autoheal:1.2.0

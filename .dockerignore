@@ -1,6 +1,7 @@
 README.md
 *.example
 node_modules/
+.data/
 .editorconfig
 .eslintrc.json
 Dockerfile

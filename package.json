@@ -41,14 +41,14 @@
     "*.{md,json,yml,js,mjs,ts,tsx}": "prettier --write"
   },
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "husky install  ||  true",
     "test": "lint-staged",
     "strapi": "strapi",
     "clean": "rm -rf .cache/ .strapi/ dist/",
     "develop": "npm run clean  &&  strapi build  &&  strapi develop",
     "build": "npm run clean  &&  cross-env NODE_ENV=production  strapi build",
     "start": "cross-env NODE_ENV=production  strapi start",
-    "pack-image": "docker build -t strapi-server:latest .",
-    "container": "(docker rm -f strapi-server || true)  &&  docker run --name strapi-server -p 1337:1337 -d strapi-server:latest"
+    "pack-image": "docker build -t idea2app/strapi-server:latest .",
+    "container": "docker rm -f strapi-server  &&  docker run --name strapi-server -p 1337:1337 -d idea2app/strapi-server:latest"
   }
 }
