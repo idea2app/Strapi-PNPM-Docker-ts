@@ -705,6 +705,8 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'plugin::users-permissions.role'
     >;
     gender: Attribute.Enumeration<['Female', 'Male', 'Other']>;
+    location: Attribute.JSON &
+      Attribute.CustomField<'plugin::location-plugin.location'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

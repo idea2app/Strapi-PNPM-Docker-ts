@@ -8,16 +8,18 @@
   },
   "dependencies": {
     "@ckeditor/strapi-plugin-ckeditor": "^0.0.10",
-    "@strapi/plugin-color-picker": "^4.15.4",
-    "@strapi/plugin-documentation": "4.15.4",
-    "@strapi/plugin-i18n": "4.15.4",
-    "@strapi/plugin-users-permissions": "4.15.4",
-    "@strapi/strapi": "4.15.4",
+    "@notum-cz/strapi-plugin-location": "^1.2.1",
+    "@strapi/plugin-color-picker": "4.15.5",
+    "@strapi/plugin-documentation": "4.15.5",
+    "@strapi/plugin-i18n": "4.15.5",
+    "@strapi/plugin-users-permissions": "4.15.5",
+    "@strapi/strapi": "4.15.5",
     "better-sqlite3": "9.1.1",
     "pg": "^8.11.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^5.3.4",
+    "sharp": "^0.33.0",
     "strapi-content-type-explorer": "^0.1.1",
     "strapi-plugin-multi-select": "^1.2.2",
     "strapi-plugin-react-icons": "^0.2.1",
@@ -25,9 +27,9 @@
     "styled-components": "^5.3.11"
   },
   "devDependencies": {
-    "@codemirror/autocomplete": "^6.11.0",
+    "@codemirror/autocomplete": "^6.11.1",
     "@codemirror/lint": "^6.4.2",
-    "@codemirror/search": "^6.5.4",
+    "@codemirror/search": "^6.5.5",
     "@codemirror/theme-one-dark": "^6.1.2",
     "cross-env": "^7.0.3",
     "husky": "^8.0.3",
@@ -41,14 +43,15 @@
     "*.{md,json,yml,js,mjs,ts,tsx}": "prettier --write"
   },
   "scripts": {
-    "prepare": "husky install  ||  true",
+    "prepare": "husky install",
     "test": "lint-staged",
     "strapi": "strapi",
     "clean": "rm -rf .cache/ .strapi/ dist/",
-    "develop": "npm run clean  &&  strapi build  &&  strapi develop",
+    "develop": "npm run database  &&  strapi develop",
     "build": "npm run clean  &&  cross-env NODE_ENV=production  strapi build",
     "start": "cross-env NODE_ENV=production  strapi start",
-    "pack-image": "docker build -t idea2app/strapi-server:latest .",
-    "container": "docker rm -f strapi-server  &&  docker run --name strapi-server -p 1337:1337 -d idea2app/strapi-server:latest"
+    "pack-image": "docker build -t idea2app/strapi-server .",
+    "database": "docker rm -f postgres-server  &&  docker run --name postgres-server -v ./.data:/var/lib/postgresql/data/ -e POSTGRES_PASSWORD=tobemodified -p 5432:5432 -d postgis/postgis",
+    "container": "docker rm -f strapi-server  &&  docker run --name strapi-server -p 1337:1337 -d idea2app/strapi-server"
   }
 }

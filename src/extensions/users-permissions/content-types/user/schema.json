@@ -67,11 +67,11 @@
     },
     "gender": {
       "type": "enumeration",
-      "enum": [
-        "Female",
-        "Male",
-        "Other"
-      ]
+      "enum": ["Female", "Male", "Other"]
+    },
+    "location": {
+      "type": "customField",
+      "customField": "plugin::location-plugin.location"
     }
   }
 }
