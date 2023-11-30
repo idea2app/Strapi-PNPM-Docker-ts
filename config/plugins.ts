@@ -1,4 +1,4 @@
-export default () => ({
+export default ({ env }) => ({
   transformer: {
     enabled: true,
     responseTransforms: {
@@ -7,4 +7,7 @@ export default () => ({
     },
   },
   'react-icons': true,
+  'location-plugin': {
+    enabled: env('DATABASE_CLIENT') === 'postgres',
+  },
 });
