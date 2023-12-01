@@ -24,7 +24,9 @@ export default ({ env }) => {
 
   const connections = {
     mysql: {
-      connection: { ...connection, port: port || 3306, connectionString },
+      connection: connectionString
+        ? { connectionString }
+        : { ...connection, port: port || 3306 },
       pool,
     },
     mysql2: {
@@ -32,12 +34,13 @@ export default ({ env }) => {
       pool,
     },
     postgres: {
-      connection: {
-        ...connection,
-        port: port || 5432,
-        connectionString,
-        schema: env('DATABASE_SCHEMA', 'public'),
-      },
+      connection: connectionString
+        ? { connectionString, schema: env('DATABASE_SCHEMA', 'public') }
+        : {
+            ...connection,
+            port: port || 5432,
+            schema: env('DATABASE_SCHEMA', 'public'),
+          },
       pool,
     },
     sqlite: {
