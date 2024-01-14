@@ -54,7 +54,7 @@ Start your Strapi application with autoReload enabled. [Learn more][24]
 ```shell
 npm i pnpm -g
 pnpm i
-cp .env.example .env ## change .env by yourself
+cp .env.example .env # change .env by yourself
 pnpm develop
 ```
 
