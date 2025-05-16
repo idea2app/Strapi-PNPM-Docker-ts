@@ -2,10 +2,17 @@ import { join } from 'path';
 
 export default ({ env }) => {
   const client = env('DATABASE_CLIENT', 'sqlite'),
+    filename = join(
+      __dirname,
+      '..',
+      '..',
+      env('DATABASE_FILENAME', '.tmp/data.db'),
+    ),
     connectionString = env('DATABASE_URL'),
     host = env('DATABASE_HOST', 'localhost'),
     port = env.int('DATABASE_PORT'),
     database = env('DATABASE_NAME', 'strapi'),
+    schema = env('DATABASE_SCHEMA', 'public'),
     user = env('DATABASE_USERNAME', 'strapi'),
     password = env('DATABASE_PASSWORD', 'strapi'),
     ssl = env.bool('DATABASE_SSL', false) && {
@@ -23,37 +30,14 @@ export default ({ env }) => {
   const connection = { host, database, user, password, ssl };
 
   const connections = {
-    mysql: {
-      connection: connectionString
-        ? { connectionString }
-        : { ...connection, port: port || 3306 },
-      pool,
-    },
-    mysql2: {
-      connection: { ...connection, port: port || 3306 },
-      pool,
-    },
+    mysql: { connection: { ...connection, port: port || 3306 }, pool },
     postgres: {
       connection: connectionString
-        ? { connectionString, schema: env('DATABASE_SCHEMA', 'public') }
-        : {
-            ...connection,
-            port: port || 5432,
-            schema: env('DATABASE_SCHEMA', 'public'),
-          },
+        ? { connectionString, schema }
+        : { ...connection, port: port || 5432, schema },
       pool,
     },
-    sqlite: {
-      connection: {
-        filename: join(
-          __dirname,
-          '..',
-          '..',
-          env('DATABASE_FILENAME', '.tmp/data.db'),
-        ),
-      },
-      useNullAsDefault: true,
-    },
+    sqlite: { connection: { filename }, useNullAsDefault: true },
   };
 
   return {

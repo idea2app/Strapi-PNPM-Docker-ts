@@ -1,38 +1,48 @@
 {
   "name": "strapi-pnpm-docker-ts",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "private": true,
   "engines": {
-    "node": ">=18.0.0 <=20.x.x",
+    "node": ">=18.0.0 <=22.x.x",
     "npm": ">=6.0.0"
   },
   "dependencies": {
-    "@ckeditor/strapi-plugin-ckeditor": "^0.0.10",
-    "@strapi/plugin-color-picker": "4.16.2",
-    "@strapi/plugin-documentation": "4.16.2",
-    "@strapi/plugin-i18n": "4.16.2",
-    "@strapi/plugin-users-permissions": "4.16.2",
-    "@strapi/strapi": "4.16.2",
-    "better-sqlite3": "9.2.2",
-    "pg": "^8.11.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^5.3.4",
-    "strapi-content-type-explorer": "^0.1.1",
-    "strapi-plugin-multi-select": "^1.2.2",
-    "strapi-plugin-react-icons": "^0.2.1",
-    "strapi-plugin-transformer": "^3.1.2",
-    "styled-components": "^5.3.11"
+    "@arshiash80/strapi-plugin-iconhub": "^1.0.2",
+    "@ckeditor/strapi-plugin-ckeditor": "^1.1.1",
+    "@strapi/plugin-cloud": "~5.13.0",
+    "@strapi/plugin-color-picker": "~5.13.0",
+    "@strapi/plugin-documentation": "~5.13.0",
+    "@strapi/plugin-users-permissions": "~5.13.0",
+    "@strapi/provider-upload-aws-s3": "^5.13.0",
+    "@strapi/strapi": "~5.13.0",
+    "better-sqlite3": "^11.10.0",
+    "pg": "^8.16.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.0",
+    "strapi-plugin-address-selection": "^1.0.1",
+    "strapi-plugin-multi-select": "^2.1.1",
+    "styled-components": "^6.1.18"
   },
   "devDependencies": {
-    "@codemirror/autocomplete": "^6.11.1",
-    "@codemirror/lint": "^6.4.2",
-    "@codemirror/search": "^6.5.5",
-    "@codemirror/theme-one-dark": "^6.1.2",
+    "@types/node": "^22.15.18",
+    "@types/react": "^18.3.21",
+    "@types/react-dom": "^18.3.7",
     "cross-env": "^7.0.3",
-    "husky": "^8.0.3",
-    "lint-staged": "^15.2.0",
-    "prettier": "^3.1.1"
+    "husky": "^9.1.7",
+    "lint-staged": "^16.0.0",
+    "prettier": "^3.5.3",
+    "typescript": "~5.8.3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@swc/core",
+      "@tailwindcss/oxide",
+      "better-sqlite3",
+      "core-js-pure",
+      "esbuild",
+      "sharp"
+    ]
   },
   "prettier": {
     "singleQuote": true
@@ -41,8 +51,10 @@
     "*.{md,json,yml,js,mjs,ts,tsx}": "prettier --write"
   },
   "scripts": {
-    "prepare": "husky install  ||  true",
+    "prepare": "husky || true",
     "test": "lint-staged",
+    "upgrade": "npx @strapi/upgrade latest",
+    "upgrade:dry": "npx @strapi/upgrade latest --dry",
     "strapi": "strapi",
     "clean": "rm -rf .cache/ .strapi/ dist/",
     "develop": "strapi develop",
@@ -50,6 +62,8 @@
     "start": "cross-env NODE_ENV=production  strapi start",
     "pack-image": "docker build -t idea2app/strapi-server .",
     "database": "docker rm -f postgres-server  &&  docker run --name postgres-server -v ./.data:/var/lib/postgresql/data/ -e POSTGRES_PASSWORD=tobemodified -p 5432:5432 -d postgres",
-    "container": "docker rm -f strapi-server  &&  docker run --name strapi-server -p 1337:1337 -d idea2app/strapi-server"
+    "container": "docker rm -f strapi-server  &&  docker run --name strapi-server -p 1337:1337 -d idea2app/strapi-server",
+    "deploy": "strapi deploy",
+    "console": "strapi console"
   }
 }
