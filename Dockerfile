@@ -1,11 +1,11 @@
 # Reference: https://pnpm.io/docker#example-1-build-a-bundle-in-a-docker-container
 
-FROM node:18-slim AS base
+FROM node:22-slim AS base
 RUN apt-get update && \
     apt-get install curl -y --no-install-recommends
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
-RUN corepack enable
+RUN npm i pnpm -g
 COPY . /app
 WORKDIR /app
 

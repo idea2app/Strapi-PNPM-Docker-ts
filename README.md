@@ -10,8 +10,8 @@ Strapi comes with a full featured [Command Line Interface][1] (CLI) which lets y
 ## 🎮 Stack
 
 - Programming Language: [TypeScript][5] v5+
-- Package Manager: [PNPM][6] v7+
-- Headless CMS: [Strapi][7] v4+
+- Package Manager: [PNPM][6] v10+
+- Headless CMS: [Strapi][7] v5+
 - API specification: [Swagger][8]
 - Deployment Engine: [Docker][9]
 - CI/CD platform: [GitHub actions][10]
@@ -20,16 +20,16 @@ Strapi comes with a full featured [Command Line Interface][1] (CLI) which lets y
 
 ### Back-end
 
-1.  [Content Type explorer][11]
-2.  [Data transformer][12]
-3.  [Swagger document][13]
+1.  [Swagger document][11]
+2.  [AWS S3 uploader][12] (with CloudFlare R2 compatibility)
 
 ### Front-end
 
-1.  [Color picker][14]
-2.  [Multiple selector][15]
-3.  [React Icons picker][16]
-4.  [CKEditor 5][17]
+1.  [Color picker][12]
+2.  [Multiple selector][13]
+3.  [IconHub][14]
+4.  [CKEditor 5][15]
+5.  [Address Selection][16]
 
 ## 💡 Best practice
 
@@ -94,6 +94,10 @@ pnpm container
 
 Strapi gives you many possible deployment options for your project including [Strapi Cloud][27]. Browse the [deployment section of the documentation][28] to find the best solution for your use case.
 
+```shell
+pnpm strapi deploy
+```
+
 ## 📚 Learn more
 
 - [Resource center][29] - Strapi resource center.
@@ -112,7 +116,7 @@ Feel free to check out the [Strapi GitHub repository][34]. Your feedback and con
 
 ---
 
-🤫 Psst! [Strapi is hiring][38].
+<sub>🤫 Psst! [Strapi is hiring][38].</sub>
 
 [1]: https://docs.strapi.io/dev-docs/cli
 [2]: https://github.com/idea2app/Strapi-PNPM-Docker-ts/actions/workflows/deploy-production.yml
@@ -124,19 +128,19 @@ Feel free to check out the [Strapi GitHub repository][34]. Your feedback and con
 [8]: https://swagger.io/
 [9]: https://www.docker.com/
 [10]: https://github.com/features/actions
-[11]: https://github.com/shahriarkh/strapi-content-type-explorer
-[12]: https://github.com/ComfortablyCoding/strapi-plugin-transformer
-[13]: https://github.com/strapi/strapi/tree/develop/packages/plugins/documentation
-[14]: https://github.com/strapi/strapi/tree/develop/packages/plugins/color-picker
-[15]: https://github.com/Zaydme/strapi-plugin-multi-select
-[16]: https://github.com/DanielPantle/strapi-plugin-react-icons
-[17]: https://github.com/ckeditor/strapi-plugin-ckeditor
+[11]: https://github.com/strapi/strapi/tree/develop/packages/plugins/documentation
+[12]: https://github.com/strapi/strapi/tree/main/packages/providers/upload-aws-s3
+[13]: https://github.com/strapi/strapi/tree/develop/packages/plugins/color-picker
+[14]: https://github.com/Zaydme/strapi-plugin-multi-select
+[15]: https://github.com/Arshiash80/strapi-plugin-iconhub
+[16]: https://github.com/ckeditor/strapi-plugin-ckeditor
+[17]: https://github.com/telio-s/strapi-plugin-address-selection
 [18]: https://github.com/apps/settings
-[19]: https://github.com/new?template_name=Next-Bootstrap-ts&template_owner=idea2app
-[20]: https://codespaces.new/idea2app/Next-Bootstrap-ts
-[21]: https://github.com/kaiyuanshe/kaiyuanshe.github.io/blob/bb4675a56bf1d6b207231313da5ed0af7cf0ebd6/.github/workflows/pull-request.yml#L32-L56
-[22]: https://github.com/idea2app/Next-Bootstrap-ts/issues/new/choose
-[23]: https://github.com/idea2app/Next-Bootstrap-ts/projects
+[19]: https://github.com/new?template_name=Strapi-PNPM-Docker-ts&template_owner=idea2app
+[20]: https://codespaces.new/idea2app/Strapi-PNPM-Docker-ts
+[21]: https://github.com/FreeCodeCamp-Chengdu/FreeCodeCamp-Chengdu.github.io/blob/8df9944449002758f7ec809deeb260ce08182259/.github/workflows/main.yml#L34-L63
+[22]: https://github.com/idea2app/Strapi-PNPM-Docker-ts/issues/new/choose
+[23]: https://github.com/idea2app/Strapi-PNPM-Docker-ts/projects
 [24]: https://docs.strapi.io/dev-docs/cli#strapi-develop
 [25]: https://docs.strapi.io/dev-docs/cli#strapi-start
 [26]: https://docs.strapi.io/dev-docs/cli#strapi-build

@@ -1,10 +1,19 @@
-export default () => ({
-  transformer: {
-    enabled: true,
-    responseTransforms: {
-      removeDataKey: true,
-      removeAttributesKey: true,
+export default ({ env }) => ({
+  upload: {
+    config: {
+      provider: 'aws-s3',
+      providerOptions: {
+        credentials: {
+          accessKeyId: env('CLOUDFLARE_ACCESS_KEY_ID'),
+          secretAccessKey: env('CLOUDFLARE_ACCESS_SECRET'),
+        },
+        region: 'auto',
+        endpoint: env('CLOUDFLARE_ENDPOINT'),
+        params: {
+          Bucket: env('CLOUDFLARE_BUCKET'),
+        },
+      },
     },
   },
-  'react-icons': true,
+  'address-selection': { enabled: true },
 });
