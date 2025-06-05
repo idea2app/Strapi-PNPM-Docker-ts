@@ -15,5 +15,4 @@ export default ({ env }) => ({
       },
     },
   },
-  'address-selection': { enabled: true },
 });

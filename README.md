@@ -25,11 +25,11 @@ Strapi comes with a full featured [Command Line Interface][1] (CLI) which lets y
 
 ### Front-end
 
-1.  [Color picker][12]
-2.  [Multiple selector][13]
-3.  [IconHub][14]
-4.  [CKEditor 5][15]
-5.  [Address Selection][16]
+1.  [Color picker][13]
+2.  [Multiple selector][14]
+3.  [IconHub][15]
+4.  [CKEditor 5][16]
+5.  [Location picker][17]
 
 ## 💡 Best practice
 
@@ -98,6 +98,24 @@ Strapi gives you many possible deployment options for your project including [St
 pnpm strapi deploy
 ```
 
+## 🚀 Releasing
+
+### Deploy Application
+
+```shell
+git checkout master
+git tag v1.0.0  # this version tag comes from ./package.json
+git push origin master --tags
+```
+
+### Publish Type Package
+
+```shell
+git checkout master
+git tag type-v1.0.0  # this version tag comes from ./types/package.json
+git push origin master --tags
+```
+
 ## 📚 Learn more
 
 - [Resource center][29] - Strapi resource center.
@@ -134,7 +152,7 @@ Feel free to check out the [Strapi GitHub repository][34]. Your feedback and con
 [14]: https://github.com/Zaydme/strapi-plugin-multi-select
 [15]: https://github.com/Arshiash80/strapi-plugin-iconhub
 [16]: https://github.com/ckeditor/strapi-plugin-ckeditor
-[17]: https://github.com/telio-s/strapi-plugin-address-selection
+[17]: https://github.com/wisnuwiry/strapi-geodata
 [18]: https://github.com/apps/settings
 [19]: https://github.com/new?template_name=Strapi-PNPM-Docker-ts&template_owner=idea2app
 [20]: https://codespaces.new/idea2app/Strapi-PNPM-Docker-ts

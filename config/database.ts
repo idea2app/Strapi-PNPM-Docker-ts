@@ -1,7 +1,10 @@
 import { join } from 'path';
 
 export default ({ env }) => {
-  const client = env('DATABASE_CLIENT', 'sqlite'),
+  const client =
+      process.env.NODE_ENV === 'production'
+        ? env('DATABASE_CLIENT', 'sqlite')
+        : 'sqlite',
     filename = join(
       __dirname,
       '..',
