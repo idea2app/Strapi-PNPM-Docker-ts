@@ -130,5 +130,6 @@ dist
 build
 .strapi*
 types/generated/
+types/client/
 types/pnpm-lock.yaml
 documentation/

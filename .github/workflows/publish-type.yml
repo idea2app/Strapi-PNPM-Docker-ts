@@ -26,8 +26,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          mv .env.example .env
           pnpm i
-          pnpm strapi ts:generate-types
+          pnpm build
           cd types/
           npm publish
