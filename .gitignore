@@ -131,5 +131,7 @@ build
 .strapi*
 types/generated/
 types/client/
+types/*.ts
 types/pnpm-lock.yaml
-documentation/
+src/extensions/documentation/documentation/
+src/extensions/documentation/public/

@@ -33,7 +33,9 @@
     "lint-staged": "^16.1.0",
     "prettier": "^3.5.3",
     "swagger-typescript-api": "^13.2.0",
-    "typescript": "~5.8.3"
+    "tsx": "^4.19.4",
+    "typescript": "~5.8.3",
+    "zx": "^8.5.5"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
@@ -59,8 +61,8 @@
     "strapi": "strapi",
     "clean": "rm -rf .cache/ .strapi/ dist/",
     "develop": "strapi develop",
-    "make-type": "swagger-typescript-api generate -p src/extensions/documentation/documentation/1.0.0/full_documentation.json --extract-enums --modular -o types/client/",
-    "build-type": "rm -rf types/client/  &&  npm run make-type  &&  mv -f types/client/data-contracts.ts types/index.ts  &&  git add types/index.ts",
+    "make-type": "cd src/extensions/documentation/  &&  tsx make-type documentation/1.0.0/full_documentation.json ../../../types/client/",
+    "build-type": "rm -rf types/client/  &&  npm run make-type",
     "build": "npm run clean  &&  cross-env NODE_ENV=production  strapi build",
     "start": "cross-env NODE_ENV=production  strapi start",
     "pack-image": "docker build -t idea2app/strapi-server .",
