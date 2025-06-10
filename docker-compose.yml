@@ -1,8 +1,13 @@
 version: '3'
 
+networks:
+  idea2app:
+
 services:
   postgres-server:
     image: postgres
+    networks:
+      - idea2app
     environment:
       - POSTGRES_PASSWORD=${ADMIN_JWT_SECRET}
     volumes:
@@ -12,7 +17,9 @@ services:
   strapi-server:
     depends_on:
       - postgres-server
-    image: idea2app/strapi-server
+    image: idea2app/strapi-pnpm-docker-ts
+    networks:
+      - idea2app
     environment:
       - DATABASE_CLIENT=postgres
       - DATABASE_URL=postgres://postgres:${ADMIN_JWT_SECRET}@postgres-server:5432/postgres
@@ -30,6 +37,19 @@ services:
 
   autoheal:
     image: willfarrell/autoheal:1.2.0
+    networks:
+      - idea2app
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: always
+
+  caddy:
+    depends_on:
+      - strapi-server
+    image: caddy
+    networks:
+      - idea2app
+    ports:
+      - 80:80
+      - 443:443
+    command: caddy reverse-proxy --from your.domain.com --to strapi-server:1337

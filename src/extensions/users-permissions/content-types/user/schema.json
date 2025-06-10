@@ -67,11 +67,19 @@
     },
     "gender": {
       "type": "enumeration",
-      "enum": [
-        "Female",
-        "Male",
-        "Other"
-      ]
+      "enum": ["female", "male", "other"]
+    },
+    "avatar": {
+      "type": "string"
+    },
+    "mobilePhone": {
+      "type": "string",
+      "unique": true
+    },
+    "address": {
+      "type": "component",
+      "repeatable": false,
+      "component": "location.address"
     }
   }
 }

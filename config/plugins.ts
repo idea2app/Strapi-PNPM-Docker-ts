@@ -1,17 +1,15 @@
 export default ({ env }) => ({
   upload: {
     config: {
-      provider: 'aws-s3',
+      provider: 'strapi-provider-cloudflare-r2',
       providerOptions: {
-        credentials: {
-          accessKeyId: env('CLOUDFLARE_ACCESS_KEY_ID'),
-          secretAccessKey: env('CLOUDFLARE_ACCESS_SECRET'),
-        },
-        region: 'auto',
+        accessKeyId: env('CLOUDFLARE_ACCESS_KEY_ID'),
+        secretAccessKey: env('CLOUDFLARE_ACCESS_SECRET'),
         endpoint: env('CLOUDFLARE_ENDPOINT'),
         params: {
           Bucket: env('CLOUDFLARE_BUCKET'),
         },
+        cloudflarePublicAccessUrl: env('CLOUDFLARE_PUBLIC_ACCESS_URL'),
       },
     },
   },

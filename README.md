@@ -21,7 +21,7 @@ Strapi comes with a full featured [Command Line Interface][1] (CLI) which lets y
 ### Back-end
 
 1.  [Swagger document][11]
-2.  [AWS S3 uploader][12] (with CloudFlare R2 compatibility)
+2.  [CloudFlare R2 uploader][12]
 
 ### Front-end
 
@@ -30,6 +30,12 @@ Strapi comes with a full featured [Command Line Interface][1] (CLI) which lets y
 3.  [IconHub][15]
 4.  [CKEditor 5][16]
 5.  [Location picker][17]
+
+## 💾 Preset schema
+
+### Data components
+
+1. [Location Address](src/components/location/address.json)
 
 ## 💡 Best practice
 
@@ -147,7 +153,7 @@ Feel free to check out the [Strapi GitHub repository][34]. Your feedback and con
 [9]: https://www.docker.com/
 [10]: https://github.com/features/actions
 [11]: https://github.com/strapi/strapi/tree/develop/packages/plugins/documentation
-[12]: https://github.com/strapi/strapi/tree/main/packages/providers/upload-aws-s3
+[12]: https://github.com/trieb-work/strapi-provider-cloudflare-r2
 [13]: https://github.com/strapi/strapi/tree/develop/packages/plugins/color-picker
 [14]: https://github.com/Zaydme/strapi-plugin-multi-select
 [15]: https://github.com/Arshiash80/strapi-plugin-iconhub
