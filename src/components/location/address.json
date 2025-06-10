@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_location_addresses",
+  "info": {
+    "displayName": "Address",
+    "icon": "pinMap"
+  },
+  "options": {},
+  "attributes": {
+    "country": {
+      "type": "string",
+      "required": true
+    },
+    "province": {
+      "type": "string",
+      "required": true
+    },
+    "city": {
+      "type": "string"
+    },
+    "district": {
+      "type": "string"
+    },
+    "street": {
+      "type": "string"
+    },
+    "building": {
+      "type": "string"
+    },
+    "room": {
+      "type": "string"
+    }
+  }
+}
