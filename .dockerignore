@@ -3,7 +3,7 @@ README.md
 node_modules/
 .data/
 .editorconfig
-.eslintrc.json
+eslint.config.*
 Dockerfile
 docker-compose.yml
 start.sh

@@ -6,24 +6,26 @@ networks:
 services:
   postgres-server:
     image: postgres
-    networks:
-      - idea2app
     environment:
       - POSTGRES_PASSWORD=${ADMIN_JWT_SECRET}
     volumes:
       - ./.data:/var/lib/postgresql/data/
+    networks:
+      - idea2app
     restart: always
 
   strapi-server:
     depends_on:
       - postgres-server
     image: idea2app/strapi-pnpm-docker-ts
-    networks:
-      - idea2app
     environment:
       - DATABASE_CLIENT=postgres
       - DATABASE_URL=postgres://postgres:${ADMIN_JWT_SECRET}@postgres-server:5432/postgres
       - NODE_ENV=production
+    volumes:
+      - ./config/sync:/app/config/sync
+    networks:
+      - idea2app
     ports:
       - 1337:1337
     healthcheck:
